@@ -2,7 +2,7 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: myapp
-  namespace: fixed-demo
+  namespace: rolling-demo
   labels:
     app: myapp  
 spec:

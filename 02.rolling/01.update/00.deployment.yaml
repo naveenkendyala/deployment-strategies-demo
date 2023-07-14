@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: myapp
-  namespace: fixed-demo
+  namespace: rolling-demo
   labels:
     app: myapp
     app.openshift.io/runtime: spring-boot    
@@ -18,6 +18,9 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: quay.io/naveenkendyala/sboot-hello:v1
+        image: quay.io/naveenkendyala/sboot-hello:v2
         ports:
           - containerPort: 8080
+  strategy:
+    # Default type is also RollingUpdate
+    type: RollingUpdate
