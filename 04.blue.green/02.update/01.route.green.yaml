@@ -4,10 +4,10 @@ metadata:
   name: myapp
   namespace: blue-green-demo
   labels:
-    app: myapp  
+    app: myapp
 spec:
   port:
     targetPort: 8080
   to:
     kind: Service
-    name: myapp
+    name: myapp-green

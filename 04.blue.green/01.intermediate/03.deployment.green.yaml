@@ -1,20 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: myapp-green
   namespace: blue-green-demo
   labels:
     app: myapp
+    type: green
     app.openshift.io/runtime: spring-boot
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: myapp
+      type: green
   template:
     metadata:
       labels:
         app: myapp
+        type: green
     spec:
       containers:
       - name: myapp
