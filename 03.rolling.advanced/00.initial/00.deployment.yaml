@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: myapp
-  namespace: rolling-demo
+  namespace: rolling-advance-demo
   labels:
     app: myapp
     app.openshift.io/runtime: spring-boot
@@ -21,6 +21,11 @@ spec:
         image: quay.io/naveenkendyala/sboot-hello:v1
         ports:
           - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+            scheme: HTTP          
         securityContext:
           runAsNonRoot: true
           seccompProfile:

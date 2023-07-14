@@ -2,10 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: myapp
-  namespace: rolling-demo
+  namespace: rolling-advance-demo
   labels:
     app: myapp
-    app.openshift.io/runtime: spring-boot    
+    app.openshift.io/runtime: spring-boot
 spec:
   replicas: 1
   selector:
@@ -21,6 +21,19 @@ spec:
         image: quay.io/naveenkendyala/sboot-hello:v2
         ports:
           - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+            scheme: HTTP          
+        securityContext:
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - ALL      
   strategy:
     # Default type is also RollingUpdate
     type: RollingUpdate
