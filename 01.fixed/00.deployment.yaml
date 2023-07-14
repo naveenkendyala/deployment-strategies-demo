@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: sboot
-  name: sboot
+    app: myapp
+  name: myapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sboot
+      app: myapp
   template:
     metadata:
       labels:
-        app: sboot
+        app: myapp
     spec:
       containers:
-      - name: sboot
+      - name: myapp
         image: quay.io/naveenkendyala/sboot-hello:v1
         ports:
           - containerPort: 8080

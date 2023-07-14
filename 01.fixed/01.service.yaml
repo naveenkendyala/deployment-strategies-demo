@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sboot
+  name: myapp
   labels:
-    app: sboot
+    app: sbomyappot
 spec:
   ports:
   - name: http
     port: 8080
   selector:
-    app: sboot
+    app: myapp
   type: LoadBalancer
