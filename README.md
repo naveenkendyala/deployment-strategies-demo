@@ -7,7 +7,6 @@ This repository is to go through the below deployment strategies
 * Canary
 
 **Create Namespaces**
-
 ---
 ```
 oc new-project fixed-demo
