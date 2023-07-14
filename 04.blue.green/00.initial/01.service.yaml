@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp
+  namespace: rolling-advance-demo
+  labels:
+    app: sbomyappot
+
+spec:
+  ports:
+  - name: http
+    port: 8080
+  selector:
+    app: myapp
+  type: LoadBalancer
