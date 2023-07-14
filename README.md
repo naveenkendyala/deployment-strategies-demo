@@ -1,6 +1,14 @@
-# deployment-strategies-demo
+## Deployment Strategies Demo
+This repository is to go through the below deployment strategies
+* Fixed
+* Rolling
+* Rolling with Probes
+* Blue Green
+* Canary
 
-## Create Namespaces
+**Create Namespaces**
+
+---
 ```
 oc new-project fixed-demo
 oc new-project rolling-demo
